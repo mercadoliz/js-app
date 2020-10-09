@@ -1,4 +1,19 @@
-alert("Hello world");
-let favouriteFood = "pizza";
-document.write(favouriteFood);
-console.log("Hello world");
+let pokemonList = [
+    {
+      name: "vulpix",
+      height: .06,
+      types: ["flash fire", "drought"],
+      
+    },
+    {
+      name: "charmander",
+      height: .06,
+      types: ["blaze", "solar power"],
+      
+    },
+    {
+      name: "ponyta",
+      height: 1,
+      types: ["flash fire", "flame body", "runaway"],
+          
+    },
