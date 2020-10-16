@@ -31,6 +31,9 @@ for (let i = 0; i < pokemonList.length; i++) {
   } else if (pokemonList[i].height < 1.0)
     document.write("(height: " + pokemonList[i].height + ")</br>");
 }
+pokemonlist.forEach(function (name, height, types) {
+  console.log(name, height, type);
+});
 
 let pokemonRepository = (function () {
   let pokemonList = [];
