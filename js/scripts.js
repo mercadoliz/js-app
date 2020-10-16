@@ -1,20 +1,24 @@
-let pokemonList = [
-  {
-    name: "vulpix",
-    height: 0.06,
-    types: ["flash fire", "drought"],
-  },
-  {
-    name: "charmander",
-    height: 0.06,
-    types: ["blaze", "solar power"],
-  },
-  {
-    name: "ponyta",
-    height: 1,
-    types: ["flash fire", "flame body", "runaway"],
-  },
-];
+(function (window, document, undefined) {
+  "use strict";
+
+  let pokemonList = [
+    {
+      name: "vulpix",
+      height: 0.06,
+      types: ["flash fire", "drought"],
+    },
+    {
+      name: "charmander",
+      height: 0.06,
+      types: ["blaze", "solar power"],
+    },
+    {
+      name: "ponyta",
+      height: 1,
+      types: ["flash fire", "flame body", "runaway"],
+    },
+  ];
+})(window, document);
 
 //list all pokemon's name, height, and types
 for (let i = 0; i < pokemonList.length; i++) {
