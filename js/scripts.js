@@ -1,53 +1,58 @@
-(function (window, document, undefined) {
-  "use strict";
-
+let pokemonRepository = (function () {
   let pokemonList = [
     {
       name: "vulpix",
-      height: 0.06,
+      height: 1,
       types: ["flash fire", "drought"],
     },
     {
       name: "charmander",
-      height: 0.06,
+      height: 6,
       types: ["blaze", "solar power"],
     },
     {
       name: "ponyta",
-      height: 1,
+      height: 12,
       types: ["flash fire", "flame body", "runaway"],
     },
   ];
-})(window, document);
-
-//list all pokemon's name, height, and types
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write("#" + pokemonList[i].name + " " + pokemonList[i].height + "");
-  //creates conditional that if a pokemon is a certain height a phrase will be added on
-  if (pokemonList[i].height >= 1.0) {
-    document.write(
-      "(height: " + pokemonList[i].height + ") - Wow that's HUGE!</br>"
-    );
-  } else if (pokemonList[i].height < 1.0)
-    document.write("(height: " + pokemonList[i].height + ")</br>");
-}
-pokemonlist.forEach(function (name, height, types) {
-  console.log(name, height, type);
-});
-
-let pokemonRepository = (function () {
-  let pokemonList = [];
-
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
 
   function getAll() {
     return pokemonList;
   }
 
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
   return {
-    add: add,
     getAll: getAll,
+    add: add,
   };
 })();
+
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: "eve", height: 2, types: ["speed"] });
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  let size = "";
+  if (pokemon.height > 10) {
+    size = "It's a big pokemon!";
+  } else if (pokemon.height < 5) {
+    size = "It's a small pokemon!";
+  } else {
+    size = "It's an average pokemon!";
+  }
+  document.write(
+    '<div class="box">' +
+      pokemon.name +
+      " (height:" +
+      pokemon.height +
+      ")" +
+      size +
+      "<br>" +
+      pokemon.types +
+      "<br>" +
+      "</div>"
+  );
+});
