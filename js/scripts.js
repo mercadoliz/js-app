@@ -24,9 +24,27 @@ let pokemonRepository = (function () {
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
+
+  function addListItem(pokemon) {
+    let ul = document.querySelector(".pokemon-list");
+    let li = document.createElement("li");
+    let button = document.createElement("button");
+    button.classList.add("my-class");
+    button.innerText = pokemon.name;
+    li.appendChild(button);
+    ul.appendChild(li);
+    button.addEventListener("click", function (event) {
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
   return {
     getAll: getAll,
     add: add,
+    addListItem: addListItem,
   };
 })();
 
@@ -43,16 +61,5 @@ pokemonRepository.getAll().forEach(function (pokemon) {
   } else {
     size = "It's an average pokemon!";
   }
-  document.write(
-    '<div class="box">' +
-      pokemon.name +
-      " (height:" +
-      pokemon.height +
-      ")" +
-      size +
-      "<br>" +
-      pokemon.types +
-      "<br>" +
-      "</div>"
-  );
+  pokemonRepository.addListItem(pokemon);
 });
